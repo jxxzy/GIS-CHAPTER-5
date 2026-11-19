@@ -38,7 +38,7 @@ paths:
         - data
       summary: Update Data Geo
       description: Update data nama by volume 
-      operationId: authService
+      operationId: updateGeoData
       requestBody:
         content:
           application/json:
@@ -54,9 +54,7 @@ paths:
         '405':
           description: Invalid input
       security:
-        - Token:
-          - write:apiKey
-          - read:apiKey
+        - Token: []
   /delDataGeo:
     delete:
       tags:
@@ -81,9 +79,7 @@ paths:
         '400':
           description: Invalid status value
       security:
-        - Token:
-          - write:apiKey
-          - read:apiKey
+        - Token: []
   /postGIS4:
     post:
       tags:
@@ -106,9 +102,7 @@ paths:
         '405':
           description: Invalid input          
       security:
-        - Token:
-          - write:apiKey
-          - read:apiKey
+        - Token: []
   /fetchGeoJson:
     get:
       tags:
@@ -128,16 +122,14 @@ paths:
         '400':
           description: Invalid status value
       security:
-        - Token:
-          - write:apiKey
-          - read:apiKey      
+        - Token: []
   /loginGISChapter5:
     post:
       tags:
         - auth
       summary: Login get Token
       description: Login and Get User Token
-      operationId: authService
+      operationId: loginGISChapter5
       requestBody:
         content:
           application/json:
@@ -153,16 +145,14 @@ paths:
         '405':
           description: Invalid input
       security:
-        - Token:
-            - write:apiKey
-            - read:apiKey
+        - Token: []
   /regisGISChpater5:
     post:
       tags:
         - register
       summary: Register User
       description: Daftar Akun User
-      operationId: authService
+      operationId: registerGISChapter5
       requestBody:
         content:
           application/json:
@@ -187,12 +177,12 @@ components:
           example : edumas1
         password:
           type: string
-          example: 4321234
+          example: "4321234"
     Response:
       type: object
       properties:
         status:
-          type: bool
+          type: boolean
           example: true
         message:
           type: string
@@ -201,7 +191,7 @@ components:
       type: object
       properties:
         status:
-          type: bool
+          type: boolean
           example: true
         message:
           type: string
@@ -222,7 +212,7 @@ components:
       type: object
       properties:
         status:
-          type: bool
+          type: boolean
           example: true
         message:
           type: string
@@ -238,7 +228,7 @@ components:
           example: rawr
         volume:
           type: string
-          example: 123123
+          example: "123123"
     ResponseDataGeo:
       type: object
       properties:
@@ -251,6 +241,7 @@ components:
               type: string
             coordinates: 
               type: array
+              items: {}
         properties:
           type: object
           properties:
@@ -267,12 +258,12 @@ components:
           example: rawr 
         volume:
           type: string
-          example: 234242
+          example: "234242"
     Resput:
       type: object
       properties:
         status:
-          type: bool
+          type: boolean
           example: true
         message:
           type: string
@@ -288,12 +279,12 @@ components:
           example: rawr 
         volume:
           type: string
-          example: 234242
+          example: "234242"
     ResDelData:
       type: object
       properties:
         status:
-          type: bool
+          type: boolean
           example: true
         message:
           type: string
@@ -306,7 +297,7 @@ components:
           example: edumas1
         password:
           type: string
-          example: 4321234
+          example: "4321234"
     bodycord:
       type: object
       properties:
@@ -323,7 +314,7 @@ components:
       type: object
       properties:
         status:
-          type: bool
+          type: boolean
           example: false
         message:
           type: string
