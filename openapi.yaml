@@ -167,6 +167,8 @@ paths:
                 $ref: '#/components/schemas/Response'
         '405':
           description: Invalid input
+      security:
+        - Token: []
 components:
   schemas:
     user:
